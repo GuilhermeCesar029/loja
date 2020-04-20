@@ -1,1 +1,1 @@
-Loja de cosmeticos
+Loja de cosmeticos.

@@ -23,11 +23,12 @@
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Logo</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <a class="navbar-brand" href="#">Elaine cosmeticos</a>
+    <div class="container">                 
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" style="min-width:400px;" placeholder="Pesquisar" aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit">Pesquisar</button>
+      </form>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
@@ -39,11 +40,14 @@
             <a class="nav-link" href="#">Produtos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Serviços</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="#">Contato</a>
           </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-primary" href="#">Fazer login</a>&ensp;
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-primary" href="{{route('site.cadastro.index')}}">Cadastre-se</a>
+            </li>
         </ul>
       </div>
     </div>

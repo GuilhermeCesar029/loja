@@ -16,7 +16,6 @@
           <a href="#" class="list-group-item">Avon</a>
           <a href="#" class="list-group-item">Roupas</a>
         </div>
-
       </div>
       <!-- /.col-lg-3 -->
 

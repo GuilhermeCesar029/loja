@@ -43,7 +43,7 @@
             <a class="nav-link" href="#">Contato</a>
           </li>
           <li class="nav-item">
-            <a class="btn btn-outline-primary" href="#">Fazer login</a>&ensp;
+            <a class="btn btn-outline-primary" href="{{route('site.login.index')}}">Fazer login</a>&ensp;
           </li>
           <li class="nav-item">
             <a class="btn btn-outline-primary" href="{{route('site.cadastro.index')}}">Cadastre-se</a>
@@ -51,4 +51,4 @@
         </ul>
       </div>
     </div>
-  </nav>
+  </nav>&emsp;

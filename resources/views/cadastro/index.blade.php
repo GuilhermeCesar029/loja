@@ -28,7 +28,7 @@
                         </div>
                         <div class="form-group col-md-5">
                             <label for="rg">RG</label>
-                            <input type="text" class="form-control" name="rg" placeholder="Digite seu RG" required>
+                            <input type="text" class="form-control" name="rg" placeholder="Digite seu RG">
                         </div>
                     </div>
                     <div class="form-row">
@@ -38,13 +38,13 @@
                         </div>
                         <div class="form-group col-md-5">
                             <label for="senha">SENHA</label>
-                            <input type="password" class="form-control" name="senha" placeholder="Digite sua senha" required>
+                            <input type="password" class="form-control" name="password" placeholder="Digite sua senha" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-5">
                             <label for="data">DATA DE NASCIMENTO</label>
-                            <input type="date" class="form-control" name="data" placeholder="Digite somente numeros. Ano/Mês/Dia" required>
+                            <input type="date" class="form-control" name="data_nascimento" placeholder="Digite somente numeros. Ano/Mês/Dia" required>
                         </div>
                         <div class="form-group col-md-5">
                             <label for="genero">GÊNERO</label>
@@ -67,7 +67,7 @@
                         </div>
                         <div class="form-group col-md-5">
                             <label for="telefone2">TELEFONE 2</label>
-                            <input type="tel" class="form-control" name="telefone2" placeholder="(61) 3032-7190" required>
+                            <input type="tel" class="form-control" name="telefone" placeholder="(61) 3032-7190" required>
                         </div>
                     </div>
                     <div class="form-row">

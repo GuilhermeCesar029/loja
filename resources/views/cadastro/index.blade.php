@@ -77,7 +77,7 @@
                         </div>        
                     </div>
                     <div class="form-row">
-                        <button type="button" class="btn btn-warning">Cadastre-se</button>&emsp;
+                        <button class="btn btn-warning">Cadastre-se</button>&emsp;
                         <a class="btn btn-success" href="{{route('site.login.index')}}">Fazer Login</a>
                     </div>&emsp;
                 </form>

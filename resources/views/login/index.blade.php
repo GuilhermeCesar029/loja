@@ -20,13 +20,14 @@
                     <div class="form-row">
                         <div class="form-goup col-md-5">
                             <label for="senha">SENHA</label>
-                            <input type="password" class="form-control" name="senha" placeholder="Digite sua senha" required>
+                            <input type="password" class="form-control" name="password" placeholder="Digite sua senha" required>
                         </div>
                     </div>&emsp;
                     <div class="form-row">
-                        <button type="button" class="btn btn-success">Fazer Login</button>&emsp;
+                        <button class="btn btn-success">Fazer Login</button>&emsp;
                         <a class="btn btn-warning" href="{{route('site.cadastro.index')}}">Cadastre-se</a>                      
                     </div>&emsp;
+                </form>    
             </section>
         </div>    
     </div>&emsp;

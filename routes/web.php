@@ -23,3 +23,13 @@ Route::post('/cadastro', 'CadastroController@cadastrar')->name('site.cadastro');
 Route::get('/login', 'LoginController@index')->name('site.login.index');
 Route::post('/login', 'LoginController@entrar')->name('site.login.entrar');
 Route::get('/login/sair', 'LoginController@sair')->name('site.login.sair');
+
+//Rotas para entrar e cadastrar produtos. 
+Route::get('/produto/entrar', 'ProdutoController@index')->name('produto.index');
+Route::post('/produto/entrar', 'ProdutoController@entrar')->name('produto.entrar');
+
+//Rotas para cadastrar produtos
+Route::group(['middleware'=>'auth'], function(){
+    Route::get('/produto', 'ProdutoController@indexcadastro')->name('produto.cadastrar.index');
+    Route::post('/produto/cadastrar', 'ProdutoController@cadastrar')->name('produto.cadastrar');
+});

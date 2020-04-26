@@ -19,7 +19,7 @@
       </div>
       <!-- /.col-lg-3 -->
 
-      @foreach ($collection as $item)        
+              
       
         <div class="col-lg-9">
 
@@ -152,7 +152,7 @@
           <!-- /.row -->
 
       </div>
-      @endforeach
+
       <!-- /.col-lg-9 -->
 
     </div>

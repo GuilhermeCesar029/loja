@@ -21,4 +21,9 @@ class LoginController extends Controller
             return redirect()->route('site.login.index');
         }
     }
+
+    public function sair(){
+        Auth::logout();
+        return redirect()->route('home');
+    }
 }

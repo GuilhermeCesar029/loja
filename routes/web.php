@@ -22,3 +22,4 @@ Route::post('/cadastro', 'CadastroController@cadastrar')->name('site.cadastro');
 //rotas para login
 Route::get('/login', 'LoginController@index')->name('site.login.index');
 Route::post('/login', 'LoginController@entrar')->name('site.login.entrar');
+Route::get('/login/sair', 'LoginController@sair')->name('site.login.sair');

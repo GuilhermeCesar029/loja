@@ -42,12 +42,18 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Contato</a>
           </li>
-          <li class="nav-item">
-            <a class="btn btn-outline-primary" href="{{route('site.login.index')}}">Fazer login</a>&ensp;
-          </li>
-          <li class="nav-item">
-            <a class="btn btn-outline-primary" href="{{route('site.cadastro.index')}}">Cadastre-se</a>
+          @if(Auth::guest())
+            <li class="nav-item">
+              <a class="btn btn-outline-primary" href="{{route('site.login.index')}}">Fazer login</a>&ensp;
             </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-primary" href="{{route('site.cadastro.index')}}">Cadastre-se</a>
+            </li>
+          @else
+            <li class="nav-item">
+              <a class="btn btn-outline-primary" href="{{route('site.login.sair')}}">Sair</a>
+            </li>
+          @endif
         </ul>
       </div>
     </div>

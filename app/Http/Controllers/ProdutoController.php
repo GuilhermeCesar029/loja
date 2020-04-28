@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\User;
+use App\LoginProduct;
 
 class ProdutoController extends Controller
 {
@@ -13,12 +13,19 @@ class ProdutoController extends Controller
     }
 
     public function entrar(Request $request){
-        $loginProdutos = $request->only('email', 'password');
+        $loginProdutos = validator($request->all(), [
+            'email'    => 'required',
+            'password' => 'required',
+        ]);
 
-        if(Auth::attempt($loginProdutos)){
-            return redirect()->route('produto.cadastrar.index');
+        if($loginProdutos->fails()){
+            return redirect()-> route('produto.index');
         }else{
-            return redrect()->route('produto.index');
+            return redirect()-> route('produto.cadastrar.index');
         }
+    }
+
+    public function indexcadastro(){
+        return view('cadastroProdutos.cadastro');
     }
 }

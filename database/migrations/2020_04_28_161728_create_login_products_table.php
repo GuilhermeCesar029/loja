@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLoginProductTable extends Migration
+class CreateLoginProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateLoginProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('loginProduct', function (Blueprint $table) {
+        Schema::create('login_products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->bcrypt();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateLoginProductTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('loginProduct');
+        Schema::dropIfExists('login_products');
     }
 }

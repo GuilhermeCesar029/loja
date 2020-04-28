@@ -41,6 +41,11 @@ return [
             'provider' => 'users',
         ],
 
+        'loginproduct' => [
+            'driver' => 'session',
+            'provider' => 'loginproduct',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -69,6 +74,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        'loginproduct' => [
+            'driver' => 'eloquent',
+            'model' => App\LoginProduct::class,
         ],
 
         // 'users' => [

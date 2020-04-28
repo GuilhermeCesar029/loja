@@ -6,7 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Product extends Authenticatable
+class LoginProduct extends Authenticatable
 {
     use Notifiable;
 
@@ -19,10 +19,6 @@ class Product extends Authenticatable
         'email',
         'password',
         'cpf',
-        'titulo',
-        'descricao',
-        'imagem',
-        'valor',
     ];
 
     /**

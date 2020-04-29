@@ -16,9 +16,6 @@ class Product extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email',
-        'password',
-        'cpf',
         'titulo',
         'descricao',
         'imagem',

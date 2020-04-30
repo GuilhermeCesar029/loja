@@ -28,11 +28,11 @@ Route::get('/login/sair', 'LoginController@sair')->name('site.login.sair');
 //Route::post('/cad', 'CadastroController@cad')->name('site.cad');
 
 //Rotas para entrar e cadastrar produtos. 
-Route::get('/produto/entrar', 'ProdutoController@index')->name('produto.index');
-Route::post('/produto/entrar', 'ProdutoController@entrar')->name('produto.entrar');
+Route::get('/produto/entrar', 'LoginProductController@index')->name('produto.index');
+Route::post('/produto/entrar', 'LoginProductController@entrar')->name('produto.entrar');
 
 //Rotas para cadastrar produtos
 Route::group(['middleware'=>'product'], function(){
-    Route::get('/produto', 'ProdutoController@indexcadastro')->name('produto.cadastrar.index');
+    Route::get('/produto', 'ProdutoController@index')->name('produto.cadastrar.index');
     Route::post('/produto/cadastrar', 'ProdutoController@cadastrar')->name('produto.cadastrar');
 });

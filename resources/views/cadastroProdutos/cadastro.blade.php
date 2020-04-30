@@ -35,6 +35,9 @@
                             <input type="file" class="custom-file-input" name="imagem" >  
                         </div>
                     </div>
+                    <div class="form-row">
+                        <button class="btn btn-success">Enviar</button>
+                    </div>
                 </form>
             </section>
         </div>    

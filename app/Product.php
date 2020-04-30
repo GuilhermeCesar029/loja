@@ -22,6 +22,8 @@ class Product extends Authenticatable
         'valor',
     ];
 
+    protected $table = "product";
+
     /**
      * The attributes that should be hidden for arrays.
      *

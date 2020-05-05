@@ -23,7 +23,7 @@
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href=" {{route('produto.index')}} ">Elaine cosmeticos</a>
+    <a class="navbar-brand" href="#">Elaine cosmeticos</a>
     <div class="container">                 
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" style="min-width:400px;" placeholder="Pesquisar" aria-label="Search">

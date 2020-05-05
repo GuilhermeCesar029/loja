@@ -49,108 +49,27 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
-
-          <div class="row">
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src={{asset('img/creme.jpg')}} alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">CREME CORPORAL</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">TODODIA</p>
+          
+            <div class="row">
+              @foreach($produtos as $produto)
+                <div class="col-lg-4 col-md-6 mb-4">
+                  <div class="card h-100">
+                    <img class="card-img-top" src="{{asset($produto->imagem)}}">
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <a href="#">{{$produto->titulo}}</a>
+                      </h4>
+                      <h5>{{$produto->valor}}</h5>
+                      <p class="card-text">{{$produto->descricao}}</p>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                    </div>
+                  </div>
                 </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src={{asset('img/sabonete.jpg')}} alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">SABONETE EM BARRA</a>
-                  </h4>
-                  <h5>R$ 13,99</h5>
-                  <p class="card-text">TODODIA</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src={{asset('img/essencial.jpg')}} alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">ESSENCIAL EXCLUSIVO</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">ESSENCIAL</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">Item Four</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">Item Five</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="#">Item Six</a>
-                  </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-                </div>
-              </div>
-            </div>
-
+              @endforeach
           </div>
           <!-- /.row -->
-
       </div>
 
       <!-- /.col-lg-9 -->

@@ -9,7 +9,7 @@
     <div class="container">
         <div class="offset-md-4">
             <section>
-                <form action="{{route('produto.cadastrar')}}" method="POST">
+                <form action="{{route('produto.cadastrar')}}" method="POST" enctype="multipart/form-data" >
                     {{csrf_field()}}
                     <div class="form-row ">
                         <div class="form-group col-md-5">
@@ -30,9 +30,9 @@
                         </div>
                     </div>
                     <div class="form-row">                        
-                        <div class="input-group col-md-5 mb-4">
+                        <div class="file-input input-group col-md-5 mb-4">                            
                             <label class="custom-file-label" for="imagem">IMAGEM</label>                          
-                            <input type="file" class="custom-file-input" name="imagem" >  
+                            <input type="file" class="custom-file-input" name="imagem" >                            
                         </div>
                     </div>
                     <div class="form-row">

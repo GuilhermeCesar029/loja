@@ -24,15 +24,16 @@ Route::get('/login', 'LoginController@index')->name('site.login.index');
 Route::post('/login', 'LoginController@entrar')->name('site.login.entrar');
 Route::get('/login/sair', 'LoginController@sair')->name('site.login.sair');
 
-//Route::get('/cad', 'CadastroController@ind')->name('site.index');
-//Route::post('/cad', 'CadastroController@cad')->name('site.cad');
-
 //Rotas para entrar e cadastrar produtos. 
 Route::get('/produto/entrar', 'LoginProductController@index')->name('produto.index');
 Route::post('/produto/entrar', 'LoginProductController@entrar')->name('produto.entrar');
 
-//Rotas para cadastrar produtos
+//Rotas protegidas para intranet
 Route::group(['middleware'=>'product'], function(){
+    //Rotas para cadastrar produtos
     Route::get('/produto', 'ProdutoController@index')->name('produto.cadastrar.index');
     Route::post('/produto/cadastrar', 'ProdutoController@cadastrar')->name('produto.cadastrar');
+    Route::get('/produtos/editar/{id}', 'ProdutoController@editar')->name('produto.editar');
+    Route::put('/produtos/atualizar/{id}', 'ProdutoController@atualizar')->name('produto.atualizar');
+    Route::delete('/produtos/deletar/{id}', 'ProdutoController@deletar')->name('produto.deletar');
 });

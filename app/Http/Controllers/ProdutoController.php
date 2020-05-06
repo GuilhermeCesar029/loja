@@ -14,13 +14,6 @@ class ProdutoController extends Controller
     }
 
     public function cadastrar(Request $request){
-        /*$this->validate($request, [
-            'titulo'    => 'required',
-            'descricao' => 'required',
-            'imagem'    => 'required',
-            'valor'     => 'required',
-        ]);
-        */
 
         $dados = $request->all();
 
@@ -36,7 +29,18 @@ class ProdutoController extends Controller
 
         Product::create($dados);
 
-        return redirect()->route('produto.cadastrar.index');
-        
+        return redirect()->route('produto.cadastrar.index');        
+    }
+
+    public function editar($id){
+
+    }
+
+    public function atualizar(Request $request, $id){
+
+    }
+
+    public function deletar($id){
+
     }
 }

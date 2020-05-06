@@ -39,6 +39,7 @@
                         <button class="btn btn-success">Enviar</button>
                     </div>
                 </form>
+                <a href="#">Modificar Produtos</a>
             </section>
         </div>    
     </div>

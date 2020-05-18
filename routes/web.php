@@ -23,3 +23,16 @@ Route::post('/cadastro', 'CadastroController@cadastrar')->name('site.cadastro');
 Route::get('/login', 'LoginController@index')->name('site.login.index');
 Route::post('/login', 'LoginController@entrar')->name('site.login.entrar');
 Route::get('/login/sair', 'LoginController@sair')->name('site.login.sair');
+
+Route::group(['middleware'=>'auth'], function(){
+    //teste
+    Route::get('/carrinho', function(){
+        echo "Carrinho de compras";
+    });
+});
+//rota admin
+Route::get('/admin', 'AdminController@index')->name('admin');
+
+//login para rota admin
+Route::get('/login/admin', 'Auth\AdminLoginController@index')->name('login.admin');
+Route::post('/login/admin', 'Auth\AdminLoginController@login')->name('login.admin.submit');

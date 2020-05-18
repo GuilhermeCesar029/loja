@@ -1,15 +1,15 @@
 @extends('layout.app')
 
-@section('titulo','Fazer login')
+@section('titulo','Login Administrador')
 
 @section('conteudo')    
     <div class="text-center">
-        <h2>Fazer Login</h2>
+        <h2>Login Administrador</h2>
     </div>&emsp;
     <div class="container" >
         <div class="offset-md-4">
             <section>
-                <form action="{{route('site.login.entrar')}}" method="POST">
+                <form action="{{route('login.admin.submit')}}" method="POST">
                     {{csrf_field()}}
                     <div class="form-row ">
                         <div class="form-group col-md-5">
@@ -24,7 +24,7 @@
                         </div>
                     </div>&emsp;
                     <div class="form-row">
-                        <button class="btn btn-success">Fazer Login</button>&emsp;                     
+                        <button class="btn btn-success">Fazer Login</button>&emsp;                      
                     </div>&emsp;
                 </form>    
             </section>

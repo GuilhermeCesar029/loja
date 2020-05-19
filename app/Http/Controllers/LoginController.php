@@ -13,9 +13,9 @@ class LoginController extends Controller
     }
 
     public function entrar(Request $request){
-        $dados = $request->only('email', 'password');
+        $loginUser = $request->only('email', 'password');
 
-        if(Auth::attempt($dados)){
+        if(Auth::attempt($loginUser)){
             return redirect()->route('home');
         }else{
             return redirect()->route('site.login.index');
@@ -26,4 +26,6 @@ class LoginController extends Controller
         Auth::logout();
         return redirect()->route('home');
     }
+
+
 }

@@ -32,4 +32,9 @@ class AdminLoginController extends Controller
             return redirect()->route('login.admin');
         }
     }
+    
+    public function sair(){
+        Auth::logout();
+        return redirect()->route('home');
+    }
 }

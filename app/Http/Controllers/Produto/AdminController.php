@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Produto;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Admin;
+use App\Product;
 
 class AdminController extends Controller
 {
@@ -12,6 +13,7 @@ class AdminController extends Controller
     }
 
     public function index(){
-        return view('admin.index');
+        $produtos = Product::all();
+        return view('admin.index', compact('produtos'));
     }
 }

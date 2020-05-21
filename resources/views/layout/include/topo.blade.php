@@ -17,13 +17,16 @@
   <!-- Custom styles for this template -->
   <link href={{asset('app-assets/css/shop-homepage.css')}} rel="stylesheet">
 
+  <!-- icons -->
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  
 </head>
 
 <body>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Elaine cosmeticos</a>
+    <a class="navbar-brand" href="{{route('home')}}">Elaine cosmeticos</a>
     <div class="container">                 
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" style="min-width:400px;" placeholder="Pesquisar" aria-label="Search">
@@ -31,11 +34,6 @@
       </form>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="{{route('home')}}">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Produtos</a>
           </li>

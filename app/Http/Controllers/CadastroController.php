@@ -12,18 +12,24 @@ class CadastroController extends Controller
     }
 
     public function cadastrar(Request $request){
+        $mensagens = [
+            'required'     => 'O campo :attribute é OBRIGATORIO',
+            'unique'       => 'O :attribute já existe',
+            'password.min' => 'É necessario ter no minimo 8 caracteres',
+            'password.min' => 'É necessario ter no maximo 12 caracteres',
+        ];
 
         $this->validate($request,[
         'nome'            => 'required',
-        'email'           => 'required', 
-        'password'        => 'required',
+        'email'           => 'required|unique:user', 
+        'password'        => 'required|min:8|max:12',
         'sobrenome'       => 'required',
-        'cpf'             => 'required',
-        'rg'              => 'required',
+        'cpf'             => 'required|unique:user',
+        'rg'              => 'required|unique:user',
         'data_nascimento' => 'required',
-        'celular'         => 'required',
-        'telefone'        => 'required',
-        ]);
+        'celular'         => 'required|unique:user',
+        'telefone'        => 'required|unique:user',
+        ], $mensagens);
 
         //criptografand a senha
         $request['password'] = bcrypt($request['password']);

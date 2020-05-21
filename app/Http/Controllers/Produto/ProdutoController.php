@@ -16,6 +16,7 @@ class ProdutoController extends Controller
 
     public function cadastrar(Request $request){
 
+        
         $dados = $request->all();
 
         if($request->hasFile('imagem')){
@@ -30,7 +31,7 @@ class ProdutoController extends Controller
 
         Product::create($dados);
 
-        return redirect()->route('produto.cadastrar.index');        
+        return redirect()->route('admin');        
     }
 
     public function editar($id){
@@ -57,7 +58,13 @@ class ProdutoController extends Controller
         
     }
 
-    public function deletar($id){
+    public function excluir($id){
+        Product::find($id)->delete();
+        return redirect()->route('admin');
+    }
 
+    public function indexJSON(){
+        $produtos = Product::all();
+        return json_encode($produtos);
     }
 }

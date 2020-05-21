@@ -1,5 +1,11 @@
 @include('layout.include.topo')
 
-@yield('conteudo')
+@hasSection('conteudo')
+    @yield('conteudo')
+@endif
+
+@hasSection('javascript')
+    @yield('javascript')
+@endif
 
 @include('layout.include.footer')

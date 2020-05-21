@@ -31,6 +31,7 @@ Route::group(['middleware'=>'auth:admin'], function(){
     Route::post('/cadastrar_produto', 'Produto\ProdutoController@cadastrar')->name('cadastro.produto.submit');
     Route::get('/admin/produto/editar/{id}', 'Produto\ProdutoController@editar')->name('cadastro.produto.editar');
     Route::put('/admin/produto/editar/{id}', 'Produto\ProdutoController@atualizar')->name('cadastro.produto.atualizar');
+    Route::get('/admin/produto/excluir/{id}', 'Produto\ProdutoController@excluir')->name('cadastro.produto.excluir');
 });
 
 

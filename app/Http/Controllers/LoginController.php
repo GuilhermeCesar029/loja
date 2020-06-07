@@ -16,7 +16,7 @@ class LoginController extends Controller
         $loginUser = $request->only('email', 'password');
 
         if(Auth::attempt($loginUser)){
-            return redirect()->route('home');
+            return redirect()->route('home.index');
         }else{
             return redirect()->route('site.login.index');
         }
@@ -24,7 +24,7 @@ class LoginController extends Controller
 
     public function sair(){
         Auth::logout();
-        return redirect()->route('home');
+        return redirect()->route('home.index');
     }
 
 

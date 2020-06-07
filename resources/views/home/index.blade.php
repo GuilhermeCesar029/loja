@@ -66,6 +66,9 @@
                     <div class="card-footer">
                       <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
                     </div>
+                    <div class="card-action">
+                      <a class="badge badge-info" href=" {{route('produto', $produto->id)}} ">Veja mais informações</a>
+                    </div>
                   </div>
                 </div>
               @endforeach
@@ -79,5 +82,7 @@
     <!-- /.row -->
 
   </div>
-  <!-- /.container -->
+  <div class="mx-auto" style="width: 300px;">
+    {{$produtos->links()}}
+  </div>
 @endsection

@@ -2,6 +2,7 @@
 
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/produto/{id}', 'HomeController@produto')->name('produto');
 
 //Rotas para o cadastro
 Route::get('/cadastro', 'CadastroController@index')->name('site.cadastro.index');

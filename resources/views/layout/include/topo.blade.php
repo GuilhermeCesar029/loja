@@ -30,7 +30,7 @@
     <div class="container">                 
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" style="min-width:400px;" placeholder="Pesquisar" aria-label="Search">
-        <button class="btn btn-outline-primary" type="submit">Pesquisar</button>
+        <button class="btn btn-link" type="submit">Pesquisar</button>
       </form>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
@@ -42,14 +42,14 @@
           </li>
           @if(Auth::guest())
             <li class="nav-item">
-              <a class="btn btn-outline-primary" href="{{route('site.login.index')}}">Fazer login</a>&ensp;
+              <a class="btn btn-link" href="{{route('site.login.index')}}">Fazer login</a>&ensp;
             </li>
             <li class="nav-item">
-              <a class="btn btn-outline-primary" href="{{route('site.cadastro.index')}}">Cadastre-se</a>
+              <a class="btn btn-link" href="{{route('site.cadastro.index')}}">Cadastre-se</a>
             </li>
           @else
             <li class="nav-item">
-              <a class="btn btn-outline-primary" href="{{route('site.login.sair')}}">Sair</a>
+              <a class="btn btn-link" href="{{route('site.login.sair')}}">Sair</a>
             </li>
           @endif
         </ul>

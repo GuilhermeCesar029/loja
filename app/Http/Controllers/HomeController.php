@@ -15,12 +15,12 @@ class HomeController extends Controller
     public function produto($id){
         //se nao for vazia
         if(!empty($id)){
-            $produto = Product::where([
+            $produtos = Product::where([
                 'id' => $id
             ])->first();
 
-            if(!empty($produto)){
-                return view('home.produto', compact('produto'));
+            if(!empty($produtos)){
+                return view('home.produto', compact('produtos'));
             }
         }
     }

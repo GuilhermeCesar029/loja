@@ -42,10 +42,10 @@
               </tbody>
             </table>
           </div>
-          <div class="row">
-              <button class="btn btn-sm btn-primary" role="button" onclick="novoProduto()">Novo Produto</button>
-          </div>
       </div>
+        <div class="row">
+            <button class="btn btn-sm btn-primary" role="button" onclick="novoProduto()">Novo Produto</button>
+        </div>
     </div>
   </div>
 <div class="modal" tabindex="-1" role="dialog" id="cadastroProdutos">

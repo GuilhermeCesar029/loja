@@ -19,6 +19,7 @@
                   <th scope="col">NOME</th>
                   <th scope="col">PREÇO</th>
                   <th scope="col">DESCRIÇÃO</th>
+                  <th scope="col">ESTOQUE</th>
                   <th scope="col">IMAGEM</th>
                   <th scope="col">AÇÃO</th>
                 </tr>
@@ -30,6 +31,7 @@
                         <td> {{$produto->titulo}} </td>
                         <td> {{$produto->valor}} </td>
                         <td> {{$produto->descricao}} </td>
+                        <td> {{$produto->estoque}} </td>
                         <td><img height="60" src="{{$produto->imagem}}" alt="{{$produto->titulo}}"></td>
                         <td>
                           <a href="{{route('cadastro.produto.editar', $produto->id)}}" class="btn btn-primary btn-sm">Editar</a>
@@ -74,6 +76,13 @@
                         <label for="valorProduto" class="control-label">Valor</label>
                         <div class="input-group">
                             <input type="text" name="valor" class="form-control" id="valorProduto" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="estoqueProduto" class="control-label">ESTOQUE</label>
+                        <div class="input-group">
+                            <input type="number" name="estoque" class="form-control" id="estoqueProduto" >
                         </div>
                     </div>
 

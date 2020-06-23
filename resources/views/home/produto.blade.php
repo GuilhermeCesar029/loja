@@ -21,6 +21,7 @@
           <p><del>{{$produtos->valor}}</del>  <strong class="text-primary h4">{{$produtos->valor}}</strong></p>
 
           <div class="mb-5">
+            <label for="">Quantidade:</label>
             <div class="input-group mb-3" style="max-width: 220px;">
               <div class="input-group-prepend">
                 <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
@@ -33,7 +34,7 @@
             </div>
   
           </div>
-          <p><a href="cart.html" class="btn btn-sm btn-primary">Adicionar ao carrinho</a></p>        
+          <p><a href="" class="btn btn-sm btn-primary">Adicionar ao carrinho</a></p>        
           </div>  
         </div>
       </div>

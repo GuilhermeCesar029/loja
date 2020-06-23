@@ -26,6 +26,16 @@
     </div>
 </div>
 
+<div class="form-row">
+    <div class="form-group col-md-5 mb-4">
+        <label for="valor">ESTOQUE</label>
+        <input 
+            type="number" class="form-control" name="estoque" placeholder="Digite a quantidade so estoque" required
+            value="{{isset($produtos->estoque) ? $produtos->estoque : ''}}"
+        >
+    </div>
+</div>
+
 <div class="form-row">                        
     <div class="file-input input-group col-md-5 mb-4">                            
         <label class="custom-file-label" for="imagem">IMAGEM</label>                          

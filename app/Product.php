@@ -20,6 +20,7 @@ class Product extends Authenticatable
         'descricao',
         'imagem',
         'valor',
+        'estoque',
     ];
 
     protected $table = "product";

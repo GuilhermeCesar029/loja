@@ -19,6 +19,7 @@ class CreateProductTable extends Migration
             $table->string('descricao')->nulable();
             $table->string('imagem')->nullable();
             $table->decimal('valor');
+            $table->integer('estoque');
             $table->rememberToken();
             $table->timestamps();
         });

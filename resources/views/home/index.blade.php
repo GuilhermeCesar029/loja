@@ -35,10 +35,7 @@
                 <img class="d-block img-fluid" src={{asset('img/cuidados-para-voce.jpg')}} alt="First slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
+                <img class="d-block img-fluid" src="{{asset('img/cuidados-diarios.jpg')}}" alt="Second slide">
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -58,7 +55,7 @@
                     <img class="card-img-top" src="{{asset($produto->imagem)}}">
                     <div class="card-body">
                       <h4 class="card-title">
-                        <a href="#">{{$produto->titulo}}</a>
+                        <a href="{{route('produto', $produto->id)}}">{{$produto->titulo}}</a>
                       </h4>
                       <h5>{{$produto->valor}}</h5>
                       <p class="card-text">{{$produto->descricao}}</p>

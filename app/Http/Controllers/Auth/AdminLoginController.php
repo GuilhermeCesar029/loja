@@ -27,7 +27,7 @@ class AdminLoginController extends Controller
         $authOK = Auth::guard('admin')->attempt($dados);
 
         if($authOK){
-            return redirect()->intended(route('admin'));
+            return redirect()->intended(route('admin.index'));
         }else{
             return redirect()->route('login.admin');
         }

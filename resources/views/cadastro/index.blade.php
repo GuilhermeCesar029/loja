@@ -78,7 +78,7 @@
                     </div>
                     <div class="form-row">
                         <button class="btn btn-warning">Cadastre-se</button>&emsp;
-                        <a class="btn btn-success" href="{{route('site.login.index')}}">Fazer Login</a>
+                        <a class="btn btn-success" href="{{route('login')}}">Fazer Login</a>
                     </div>&emsp;
                 </form>
             </section>

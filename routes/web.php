@@ -4,7 +4,8 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/produto/{id}', 'HomeController@produto')->name('produto');
 
-//Rotas para o cadastro
+//Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+/*/Rotas para o cadastro
 Route::get('/cadastro', 'CadastroController@index')->name('site.cadastro.index');
 Route::post('/cadastro', 'CadastroController@cadastrar')->name('site.cadastro');
 
@@ -19,6 +20,7 @@ Route::group(['middleware'=>'auth'], function(){
         echo "Carrinho de compras";
     });
 });
+*/
 
 //login para rota admin
 Route::get('/login/admin', 'Auth\AdminLoginController@index')->name('login.admin');
@@ -36,3 +38,5 @@ Route::group(['middleware'=>'auth:admin'], function(){
 });
 
 
+
+Auth::routes();

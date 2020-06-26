@@ -4,24 +4,6 @@
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/produto/{id}', 'HomeController@produto')->name('produto');
 
-//Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
-/*/Rotas para o cadastro
-Route::get('/cadastro', 'CadastroController@index')->name('site.cadastro.index');
-Route::post('/cadastro', 'CadastroController@cadastrar')->name('site.cadastro');
-
-//rotas para login
-Route::get('/login', 'LoginController@index')->name('site.login.index');
-Route::post('/login', 'LoginController@entrar')->name('site.login.entrar');
-Route::get('/login/sair', 'LoginController@sair')->name('site.login.sair');
-
-Route::group(['middleware'=>'auth'], function(){
-    //teste
-    Route::get('/carrinho', function(){
-        echo "Carrinho de compras";
-    });
-});
-*/
-
 //login para rota admin
 Route::get('/login/admin', 'Auth\AdminLoginController@index')->name('login.admin');
 Route::post('/login/admin', 'Auth\AdminLoginController@login')->name('login.admin.submit');

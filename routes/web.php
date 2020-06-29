@@ -6,6 +6,9 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/produto/{id}', 'HomeController@produto')->name('produto');
 
+//rotas para carrinho de compras
+Route::get('/carrinho', 'CarrinhoController@index')->name('carrinho.index');
+
 //login para rota admin
 Route::get('/login/admin', 'Auth\AdminLoginController@index')->name('login.admin');
 Route::post('/login/admin', 'Auth\AdminLoginController@login')->name('login.admin.submit');
@@ -20,7 +23,7 @@ Route::group(['middleware'=>'auth:admin'], function(){
     Route::get('/admin/produto/excluir/{id}', 'Produto\ProdutoController@excluir')->name('cadastro.produto.excluir');
 });
 
-//rotas para carrinho de compras
+
 
 
 

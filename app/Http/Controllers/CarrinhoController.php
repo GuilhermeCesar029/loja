@@ -20,12 +20,7 @@ class CarrinhoController extends Controller
             'user_id' => Auth::id()  //informa o id do usuario logado
         ])->get();
         
-        //debug
-        dd([
-            $pedidos,
-            $pedidos[0]->pedido_produtos,
-            $pedidos[0]->pedido_produtos[0]->produto
-        ]);
+    
         return view('carrinho.index', compact('pedidos'));
     }
 }

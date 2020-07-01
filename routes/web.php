@@ -8,6 +8,10 @@ Route::get('/produto/{id}', 'HomeController@produto')->name('produto');
 
 //rotas para carrinho de compras
 Route::get('/carrinho', 'CarrinhoController@index')->name('carrinho.index');
+Route::get('/carrinho/adicionar', function(){
+    return redirect()->route('index');
+});
+Route::post('/carrinho/adicionar', 'CarrinhoController@adicionar')->name('carrinho.adicionar');
 
 //login para rota admin
 Route::get('/login/admin', 'Auth\AdminLoginController@index')->name('login.admin');

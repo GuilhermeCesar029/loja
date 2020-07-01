@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pedido extends Model
 {
+    protected $filalble = [
+        'user_id',
+        'status'
+    ];
+
     //relacionamento 1 para muitos
     public function pedido_produtos(){
         return $this->hasMany('App\PedidoProduto') 

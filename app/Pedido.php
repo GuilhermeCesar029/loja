@@ -13,5 +13,11 @@ class Pedido extends Model
             count(1) as qtd')) //sum faz a soma de todos os campos
             ->groupBy('produto_id')
             ->orderBy('produto_id', 'desc');
-    }    
+    }   
+
+    //metodo para pesquisar se ja tem algum pedido reservado para o ususario(id)
+    public static function consultaId($where){
+        $pedido = self::where($where)->first(['id']);
+        return !empty($pedido->id) ? $pedido->id : null;
+    }
 }

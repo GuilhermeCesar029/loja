@@ -3,6 +3,7 @@
 
 Auth::routes();
 
+//rotas da tela inicial e tela de produtos
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/produto/{id}', 'HomeController@produto')->name('produto');
 
@@ -12,6 +13,7 @@ Route::get('/carrinho/adicionar', function(){
     return redirect()->route('index');
 });
 Route::post('/carrinho/adicionar', 'CarrinhoController@adicionar')->name('carrinho.adicionar');
+Route::delete('/carrinho/remover', 'CarrinhoController@remover')->name('carrinho.remover');
 
 //login para rota admin
 Route::get('/login/admin', 'Auth\AdminLoginController@index')->name('login.admin');

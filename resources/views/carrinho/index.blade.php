@@ -15,6 +15,16 @@
             </div>
           </div>
         </div>
+        @if(Session::has('mensagem-sucesso'))
+          <div>
+            <strong> {{Session::get('mensagem-sucesso')}} </strong>
+          </div>
+        @endif
+        @if(Session::has('mensagem-falha'))
+          <div>
+            <strong> {{Session::get('mensagem-falha')}} </strong>
+          </div>
+        @endif
         @forelse ($pedidos as $pedido)              
             <div class="site-section">
               <div class="container">

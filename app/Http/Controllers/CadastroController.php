@@ -36,6 +36,6 @@ class CadastroController extends Controller
 
         User::create($request->all());
 
-        return redirect()->route('site.login.index');
+        return redirect()->route('login');
     }
 }

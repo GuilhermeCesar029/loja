@@ -35,22 +35,35 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="#">Produtos</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="#">Contato</a>
           </li>
           @if(Auth::guest())
             <li class="nav-item">
-              <a class="btn btn-link" href="{{route('site.login.index')}}">Fazer login</a>&ensp;
+              <a class="btn btn-link" href="{{route('login')}}">Fazer login</a>&ensp;
             </li>
             <li class="nav-item">
-              <a class="btn btn-link" href="{{route('site.cadastro.index')}}">Cadastre-se</a>
+              <a class="btn btn-link" href="{{route('register')}}">Cadastre-se</a>
             </li>
           @else
-            <li class="nav-item">
-              <a class="btn btn-link" href="{{route('site.login.sair')}}">Sair</a>
-            </li>
+          <li class="nav-item dropdown">
+              <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                  {{ Auth::user()->name }} <span class="caret"></span>
+              </a>
+        
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                     onclick="event.preventDefault();
+                                   document.getElementById('logout-form').submit();">
+                      {{ __('Sair') }}
+                  </a>
+
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+
+                  <a class="dropdown-item" href="#">Carrinho</a>
+              </div>
+          </li>
           @endif
         </ul>
       </div>

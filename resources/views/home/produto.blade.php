@@ -1,6 +1,6 @@
 @extends('layout.app')
 
-@section('titulo', 'Produto')
+@section('titulo', $produtos->nome)
 
 @section('conteudo')
 
@@ -33,7 +33,12 @@
             </div>
   
           </div>
-          <p><a href="cart.html" class="btn btn-sm btn-primary">Adicionar ao carrinho</a></p>        
+          <form method="POST" action=" {{route('carrinho.adicionar')}} ">
+            {{csrf_field()}}
+            <input type="hidden" name="id" value=" {{$produtos->id}} ">
+            <button class="btn btn-primary" data-position="bottom" data-delay="50"
+            data-tooltip="O produto sera dicionado ao seu carrinho" >Adicionar ao carrinho</button>
+          </form>                  
           </div>  
         </div>
       </div>

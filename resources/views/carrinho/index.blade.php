@@ -139,5 +139,9 @@
           <input type="hidden" name="produto_id">
           <input type="hidden" name="item">
         </form>
+        <form id="form-adicionar-produto" method="POST" action=" {{route('carrinho.adicionar')}} ">
+          {{csrf_field()}}
+          <input type="hidden" name="id">
+        </form>
 
 @endsection

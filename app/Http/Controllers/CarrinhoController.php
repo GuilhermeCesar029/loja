@@ -135,7 +135,55 @@ class CarrinhoController extends Controller
         $request->session()->flash('mensagem-sucesso', 'Produto removido do carrinho com sucesso!');
 
         return redirect()->route('carrinho.index');
-
     }
 
+    public function concluir(Request $request){
+        //verifica se o token é valido
+        $this->middleware('VerifyCsrfToken');
+
+        //define qual pedido que vamos concluir
+        $idpedido   = $request->input('pedido_id');
+        
+        $idususario = Auth::id();
+
+        //verifica se existe algum registro reservado com o id do pedido para oo usuario que esta logado
+        $check_pedido = Pedido::where([
+            'id'      => $idpedido,
+            'user_id' => $idusuario,
+            'status'  => 'RE'
+        ])->exists();
+        //se nao tiver nenhum registro reservado para este usuario, mostra mensagem
+        if(!$check_pedido){
+            $request->session()->flash('mensagem-falha', 'Pedido não encontrado!');
+            return redirect()->route('carrinho.index');
+        }
+
+        //se existe algum produto vinculado a este pedido
+        $check_produtos = PedidoProduto::where([
+            'pedido_id' => $idpedido
+        ])->exists();
+        //se nao imprime a mensagem
+        if(!$check_produtos){
+            $request->session()->flash('mensagem-falha', 'Produtos do pedido não encontrados!');
+            return redirect()->route('carrinho.index');
+        }
+
+        //altera todos os produtos vinculado a este pedido para o status Pago
+        PedidoProduto::where([
+            'pedido_id' => $idpedido
+        ])->update([
+            'status' => 'PA'
+        ]);
+
+        //altera o pedido para pago
+        Pedido::where([
+            'id' => $idpedido
+        ])->update([
+            'status' => 'PA'
+        ]);
+
+        $request->session()->flash('mensagem-sucesso', 'Compra concluida com sucesso!');
+
+        return redirect()->route('carrinho.compras');
+    }
 }

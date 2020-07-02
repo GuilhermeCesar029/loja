@@ -144,4 +144,9 @@
           <input type="hidden" name="id">
         </form>
 
+        <!-- Importando funções javascript-->
+        @push('scripts')
+          <script type="text/javascript" src="/js/carrinho.js"></script>
+        @endpush
+
 @endsection

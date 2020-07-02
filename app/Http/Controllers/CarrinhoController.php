@@ -27,7 +27,7 @@ class CarrinhoController extends Controller
     }
 
     public function adicionar(Request $request){
-        //verifica de requisição enviada tem um token de segurança
+        //verifica de requisição enviada tem um token de segurança valido
         $this->middleware('VerifyCsrfToken');
 
         $idproduto = $request->input('id');
@@ -69,6 +69,70 @@ class CarrinhoController extends Controller
         //mensagem de sucesso
 
         $request->session()->flash('mensagem-sucesso', 'Produto adicionado ao carrinho com sucesso!');
+
+        return redirect()->route('carrinho.index');
+
+    }
+
+    public function remover(Request $request){
+        $this->middleware('VerifyCsrfToken');
+
+
+        $idpedido           = $request->input('pedido_id'); //define de qual pedido vamos remover um ou mais itens
+        $idproduto          = $request->input('produto_id');//define qual produto que vamos remover
+        $remove_apenas_item = (boolean)$request->input('item');//define se vamos remover apenas um item ou todos os itens do carrinho 
+        $idusuario          = Auth::id();
+
+        $idpedido = Pedido::consultaId([
+            'id'      => $idpedido,
+            'user_id' => $idusuario,
+            'status'  => 'RE'
+        ]);
+        
+        //se o pedido($idpedido) for vazio, retorna mensagem
+        if( empty($idpedido) ){
+            $request->session()->flash('mensagem-falha', 'Pedido não encontrado!');
+
+            return redirect()->route('carrinho.index');
+        }
+
+        //recebe o id do pedido e do produto
+        $where_produto = [
+            'pedido_id'  => $idpedido,
+            'produto_id' => $idproduto
+        ];
+
+        //orderBy descrecente pois o ultimo a ser inserido será o primeiro a ser removido
+        $produto = PedidoProduto::where($where_produto)->orderBy('id', 'desc')->first();
+        //verifica se a variavel produto contem o atributo id
+        if( empty($produto->id) ){
+            $request->session()->flash('mensagem-falha', 'Produto não encontrado no carrinho!');
+
+            return redirect()->route('carrinho.index');
+        }
+
+        //verifica se ele deseja remover apenas um item
+        if($remove_apenas_item){
+            //atribuindo ao array where_produto o item id que recebe o id do produto encontrado
+            $where_produto['id'] = $produto->id;
+        }
+
+        //remove todos os itens 
+        PedidoProduto::where($where_produto)->delete();
+
+        //verificando na tabela PedidoProduto se existe mais algun item vinculado ao pedido que estamos deletando os itens do carrinho
+        $check_pedido = PedidoProduto::where([     //se existir retorna true
+            'pedido_id' => $produto->pedido_id
+        ])->exists();
+        
+        //se nenhum item esta vinculado a este pedido ele pode ser deletado. para nao mater lixo na base
+        if(!$check_pedido){
+            Pedido::where([
+                'id' => $produto->pedido_id
+            ])->delete();
+        }
+
+        $request->session()->flash('mensagem-sucesso', 'Produto removido do carrinho com sucesso!');
 
         return redirect()->route('carrinho.index');
 

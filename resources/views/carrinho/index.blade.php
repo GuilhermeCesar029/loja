@@ -131,5 +131,13 @@
         @empty
             <h5>Não há nenhum pedido no carrinho</h5>
         @endforelse 
-           
+        
+        <form id="form-remover-produto" method="POST" action=" {{route('carrinho.remover')}} ">
+          {{csrf_field()}}
+          {{method_field('DELETE')}}
+          <input type="hidden" name="pedido_id">
+          <input type="hidden" name="produto_id">
+          <input type="hidden" name="item">
+        </form>
+
 @endsection

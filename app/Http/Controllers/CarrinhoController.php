@@ -144,7 +144,7 @@ class CarrinhoController extends Controller
         //define qual pedido que vamos concluir
         $idpedido   = $request->input('pedido_id');
         
-        $idususario = Auth::id();
+        $idusuario = Auth::id();
 
         //verifica se existe algum registro reservado com o id do pedido para oo usuario que esta logado
         $check_pedido = Pedido::where([
@@ -185,5 +185,16 @@ class CarrinhoController extends Controller
         $request->session()->flash('mensagem-sucesso', 'Compra concluida com sucesso!');
 
         return redirect()->route('carrinho.compras');
+    }
+
+    public function compras(){
+        //atribuindo a variavel todos os pedidos com status pago que pertence ao usuario logado. ordenando pela data de criação
+        $compras = Pedido::where([
+            'status'  => 'PA',
+            'user_id' => Auth::id()
+        ])->orderBy('created_at', 'desc')->get();
+        
+        //retornando em Json, para teste
+        return $compras;
     }
 }

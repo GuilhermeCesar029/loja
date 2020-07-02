@@ -87,7 +87,7 @@
                   <div class="col-md-6">
                     <div class="row mb-5">
                       <div class="col-md-6">
-                       <!--link-->
+                        <a href="{{route('home')}}" class="btn btn-outline-info">Continuar Comprando</a>
                       </div>
                     </div>
                     <div class="row">
@@ -99,7 +99,7 @@
                         <input type="text" class="form-control py-3" id="coupon" placeholder="Cupom">
                       </div>
                       <div class="col-md-4">
-                        <button class="btn btn-primary btn-md px-4">Aplicar cupom</button>
+                        <button class="btn btn-outline-primary btn-md px-4">Aplicar cupom</button>
                       </div>
                     </div>
                   </div>
@@ -118,13 +118,14 @@
                           <div class="col-md-6 text-right">
                             <span class="text-black">R$ {{number_format($total_pedido, 2, ',', '.')}} </span>
                           </div>
-                        </div>
-                    
-                        <div class="row">
-                          <div class="col-md-12">
-                            <a href="{{route('home')}}" class="btn btn-primary btn-lg btn-block">Continuar Comprando</a>
+                        </div>                    
+                        <form method="POST" action=" {{route('carrinho.concluir')}} ">
+                          {{csrf_field()}}
+                          <input type="hidden" name="pedido_id" value=" {{$pedido->id}}">
+                          <div class="col-md-10">
+                            <button class="btn btn-success ">Concluir compra</button>
                           </div>
-                        </div>
+                        </form>                       
                       </div>
                     </div>
                   </div>

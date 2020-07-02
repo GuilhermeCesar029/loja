@@ -54,15 +54,18 @@
                                         <div class="mb-5">
                                             <div class="input-group mb-3" style="max-width: 170px;">
                                               <div class="input-group-prepend">
-                                                <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                                                <a href="#" class="btn btn-outline-primary js-btn-minus" type="button"
+                                                onclick="carrinhoRemoverProduto( {{$pedido->id}}, {{$pedido_produto->produto_id}}, 1 )">&minus;</a>
                                               </div>
                                               <span class="form-control text-center" > {{$pedido_produto->qtd}} </span>
                                               
                                               <div class="input-group-append">
-                                                <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                                                <a href="#" class="btn btn-outline-primary js-btn-plus" type="button"
+                                                onclick="carrinhoAdicionarProduto( {{$pedido_produto->produto_id}} )">&plus;</a>
                                               </div>
                                             </div>  
-                                            <a href="#" class="" >Retirar produto</a>
+                                            <a href="#" class="" onclick="carrinhoRemoverProduto( {{$pedido->id}}, 
+                                            {{$pedido_produto->produto_id}}, 0 )">Retirar produto</a>
                                         </div>                                        
                                    </td>
                                    <td> {{$pedido_produto->produto->titulo}} </td>

@@ -62,6 +62,7 @@
                   </form>
 
                   <a class="dropdown-item" href="#">Carrinho</a>
+                  <a class="dropdown-item" href=" {{route('carrinho.compras')}} ">Minhas compras</a>
               </div>
           </li>
           @endif

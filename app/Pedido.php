@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pedido extends Model
 {
-    protected $filalble = [
+    protected $fillable = [
         'user_id',
         'status'
     ];
+
 
     //relacionamento 1 para muitos, agrupando por produtos
     public function pedido_produtos(){

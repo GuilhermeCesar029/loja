@@ -83,4 +83,59 @@
             @endif
         </h5>
     @endforelse 
+    @forelse ($cancelados as $pedido)
+    <div class="site-section">
+      <div class="container">
+        <div class="row mb-8">
+           <div class="table">
+            <div class="form-row">
+                <h5 class="col-md-6 mb-2"> Pedido: {{$pedido->id}} </h5>
+                <h5 class="col-md-6 mb-2">Criando em: {{$pedido->created_at->format('d/m/Y H:i')}} </h5> 
+                <h5>Cancelado em: {{$pedido->updated_at->format('d/m/Y H:i')}} </h5>
+            </div>                               
+             <table class="table ">
+               <thead>
+                 <tr>
+                   <th class=""></th>
+                   <th class="">Produto</th>
+                   <th class="">Valor</th>
+                   <th class="">Desconto</th>
+                   <th class="">Total</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 @php
+                   $total_pedido = 0;  
+                 @endphp
+                 @foreach ($pedido->pedido_produtos_item as $pedido_produto)
+                     @php
+                      $total_produto = $pedido_produto->valor - $pedido_produto->desconto;
+                      $total_pedido += $total_produto;   
+                     @endphp
+                     <tr>
+                       <td>
+                         <img width="100" height="100" src=" {{$pedido_produto->produto->imagem}} ">
+                       </td>
+                       <td> {{$pedido_produto->produto->titulo}} </td>
+                       <td>R$ {{number_format($pedido_produto->valor, 2, ',', '.')}} </td>
+                       <td>R$ {{number_format($pedido_produto->desconto, 2, ',', '.')}} </td>
+                       <td>R$ {{number_format($total_produto, 2, ',', '.')}} </td>
+                     </tr>
+                 @endforeach
+               </tbody>
+               <tfoot>
+                 <tr>
+                   <td colspan="3"></td>
+                   <td><strong>Total do pedido</strong></td>
+                   <td>R$ {{number_format($total_pedido, 2, ',', '.')}} </td>
+                 </tr>
+               </tfoot>
+              </table> 
+          </div>
+        </div>
+      </div>
+    </div>      
+    @empty
+       <h5 class="text-center">Nenhuma compra ainda foi cancelada.</h5> 
+    @endforelse
 @endsection

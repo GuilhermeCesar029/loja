@@ -19,7 +19,7 @@
           <p> {{$produtos->descricao}} </p>          
 
           <p><del>{{$produtos->valor}}</del>  <strong class="text-primary h4">{{$produtos->valor}}</strong></p>
-
+          
           <div class="mb-5">
             <div class="input-group mb-3" style="max-width: 220px;">
               <div class="input-group-prepend">

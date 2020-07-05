@@ -202,4 +202,73 @@ class CarrinhoController extends Controller
 
         return view('carrinho.compras', compact('compras', 'cancelados'));
     }
+
+    public function cancelar(Request $request){
+        //verifica se o token é valido
+        $this->middleware('VerifyCsrfToken');
+
+        $idpedido          = $request->input('pedido_id');
+        $idspedido_prod    = $request->input('id');
+        $idususario        = Auth::id();
+
+        //verifica se os  idspedido_prod enviados do produto sao vazios, se for envia mendagem de falha.
+        if( empty($idspedido_prod) ){
+            $request->session()->flash('mensagem-falha', 'Nenhum intem selecionado para o cancelamento!');
+
+            return redirect()->route('carrinho.compras');
+        }
+
+        //Verificação, so irá cancelar os pedidos de o status for pago.
+        $check_pedido = Pedido::where([
+            'id'      => $idpedido,
+            'user_id' => $idusuario,
+            'status'  => 'PA' //pago
+        ])->exists();
+        //se nao achar o produto com as especificações acima, mostra a mensagem de falha.
+        if( !$check_pedido ){
+            $request->session()->flash('mensagem-falha', 'Pedido não encontrado para cancelamento!');
+
+            return redirect()->route('carrinho.compras');
+        }
+
+        //primeiro passa o pedido que vamos consultar, e depois enviamos um array com os ids recebido na requisição, usando whereIn
+        $check_produtos = PedidoProduto::where([
+            'pedido_id' => $idpedido,
+            'status'    => 'PA'
+        ])->whereIn('id', $idspedido_prod)->exists();
+
+        if( !$check_produtos ){
+            $request->session()->flash('mensagem-falha', 'Produtos do pedido não encontrados!');
+
+            return redirect()->route('carrinho.compras');
+        }
+
+        //passamos o pedido com o status pago, e depois atualizamos no banco de dados a coluna status
+        PedidoProduto::where([
+            'pedido_id' => $idpedido,
+            'status'    => 'PA'
+        ])->whereIn('id', $idspedido_prod)->update([
+            'status' => 'CA'
+        ]);
+
+        //vericamos se ainda existe algum item vinculado a este pedido com o status pago
+        $check_pedido_cancel = PedidoProduto::where([
+            'pedido_id' =>$idpedido,
+            'status'    => 'PA'
+        ])->exists();
+        //caso nao tenha ficado nenhum item vinculado ao pedido pago, cancelamos o pedido
+        if( !$check_pedido_cancel ){
+            Pedido::where([
+                'id' => $idpedido
+            ])->update([
+                'status' => 'CA'
+            ]);
+
+            $request->session()->flash('mensagem-sucesso', 'Compra cancelado com sucesso!');
+        }else{
+            $request->session()->flash('mensagem-sucesso', 'Iten(ns) da compra cancelado(S) com sucesso!');
+        }
+        return redirect()->route('carrinho.compras');
+    }
+
 }

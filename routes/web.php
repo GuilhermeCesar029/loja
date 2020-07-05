@@ -16,6 +16,7 @@ Route::post('/carrinho/adicionar', 'CarrinhoController@adicionar')->name('carrin
 Route::delete('/carrinho/remover', 'CarrinhoController@remover')->name('carrinho.remover');
 Route::post('carrinho/concluir', 'CarrinhoController@concluir')->name('carrinho.concluir');
 Route::get('/carrinho/compras', 'CarrinhoController@compras')->name('carrinho.compras');
+Route::post('/carrinho/cancelar', 'CarrinhoController@cancelar')->name('carrinho.cancelar');
 
 //login para rota admin
 Route::get('/login/admin', 'Auth\AdminLoginController@index')->name('login.admin');

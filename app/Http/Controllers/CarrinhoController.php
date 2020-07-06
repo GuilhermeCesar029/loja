@@ -209,7 +209,7 @@ class CarrinhoController extends Controller
 
         $idpedido          = $request->input('pedido_id');
         $idspedido_prod    = $request->input('id');
-        $idususario        = Auth::id();
+        $idusuario        = Auth::id();
 
         //verifica se os  idspedido_prod enviados do produto sao vazios, se for envia mendagem de falha.
         if( empty($idspedido_prod) ){
@@ -263,7 +263,7 @@ class CarrinhoController extends Controller
             ])->update([
                 'status' => 'CA'
             ]);
-
+            //se o pedido for cancelado
             $request->session()->flash('mensagem-sucesso', 'Compra cancelado com sucesso!');
         }else{
             $request->session()->flash('mensagem-sucesso', 'Iten(ns) da compra cancelado(S) com sucesso!');

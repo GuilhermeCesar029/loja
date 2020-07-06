@@ -33,11 +33,14 @@
                 <div class="form-row">
                     <h5 class="col-md-6 mb-2"> Pedido: {{$pedido->id}} </h5>
                     <h5 class="col-md-6 mb-2">Criando em: {{$pedido->created_at->format('d/m/Y H:i')}} </h5> 
-                </div>                               
+                </div> 
+                <form method="POST" action=" {{route('carrinho.cancelar')}} ">
+                  {{csrf_field()}}
+                  <input type="hidden" name="pedido_id" value=" {{$pedido->id}} ">                              
                  <table class="table ">
                    <thead>
                      <tr>
-                       <th class=""></th>
+                       <th colspan="2"></th>
                        <th class="">Produto</th>
                        <th class="">Valor</th>
                        <th class="">Desconto(s)</th>
@@ -54,13 +57,22 @@
                                $total_pedido += $total_produto;
                            @endphp
                            <tr>
-                               <td>
-                                <img width="100" height="100" src=" {{$pedido_produto->produto->imagem}} ">                             
-                               </td>
-                               <td> {{$pedido_produto->produto->titulo}} </td>
-                               <td>R$ {{number_format($pedido_produto->valor, 2, ',', '.')}} </td>
-                               <td>R$ {{number_format($pedido_produto->desconto, 2, ',', '.')}} </td>
-                               <td>R$ {{number_format($total_produto, 2, ',', '.')}} </td>
+                              <td>
+                                @if($pedido_produto->status == 'PA')
+                                  <p>
+                                    <input type="checkbox" id="item-{{$pedido_produto->id}}" name="id[]"
+                                    value=" {{$pedido_produto->id}}">
+                                    <label for="item-{{$pedido_produto->id}} ">Selecionar</label>
+                                  </p>    
+                                @endif
+                              </td>
+                              <td>
+                               <img width="100" height="100" src=" {{$pedido_produto->produto->imagem}} ">                            
+                              </td>
+                              <td> {{$pedido_produto->produto->titulo}} </td>
+                              <td>R$ {{number_format($pedido_produto->valor, 2, ',', '.')}} </td>
+                              <td>R$ {{number_format($pedido_produto->desconto, 2, ',', '.')}} </td>
+                              <td>R$ {{number_format($total_produto, 2, ',', '.')}} </td>
                            </tr>
                        @endforeach
                    </tbody>
@@ -70,8 +82,17 @@
                            <td><strong>Total do pedido</strong></td>
                            <td>R$ {{number_format($total_pedido, 2, ',', '.')}} </td>
                        </tr>
+                       <tr>
+                         <td colspan="2">
+                          <button type="submit" class="btn btn-danger" data-position="bottom"
+                          data-delay="50" data-tootip="Cancelar itens selecionados">
+                            Cancelar
+                          </button>
+                         </td>
+                       </tr>
                    </tfoot>
                  </table>
+                </form>
                </div>
             </div>   
     @empty
@@ -81,8 +102,12 @@
             @else
                 Voçê ainda nao fez nunhuma compra.    
             @endif
-        </h5>
+        </h5>  
+    
     @endforelse 
+
+    
+    <h4 class="text-center">Compras Canceladas</h4>
     @forelse ($cancelados as $pedido)
     <div class="site-section">
       <div class="container">

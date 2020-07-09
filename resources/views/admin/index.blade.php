@@ -94,6 +94,9 @@
         </div>
     </div>
 </div>
+<div class="mx-auto" style="width: 300px;">
+    {{$produtos->links()}}
+  </div>
 @endsection
 
 @section('javascript')

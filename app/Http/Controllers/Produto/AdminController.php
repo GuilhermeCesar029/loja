@@ -13,7 +13,7 @@ class AdminController extends Controller
     }
 
     public function index(){
-        $produtos = Product::all();
+        $produtos = Product::Paginate(10);
         return view('admin.index', compact('produtos'));
     }
 }

@@ -59,21 +59,21 @@
                     <div class="form-group">
                         <label for="tituloProduto" class="control-label">Titulo</label>
                         <div class="input-group">
-                            <input type="text" name="titulo" class="form-control" id="tituloProduto" >
+                            <input type="text" name="titulo" class="form-control" id="tituloProduto" required>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label for="descricaoProduto" class="control-label">Descrição</label>
                         <div class="input-group">
-                            <input type="text" name="descricao" class="form-control" id="descricaoProduto" >
+                            <input type="text" name="descricao" class="form-control" id="descricaoProduto" required>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="valorProduto" class="control-label">Valor</label>
                         <div class="input-group">
-                            <input type="text" name="valor" class="form-control" id="valorProduto" >
+                            <input type="text" name="valor" class="form-control" id="valorProduto" required>
                         </div>
                     </div>
 
@@ -81,7 +81,7 @@
                         <div class="form-row">                        
                             <div class="file-input input-group col-md-5 mb-4">                            
                                 <label class="custom-file-label" for="imagem">IMAGEM</label>                          
-                                <input type="file" class="custom-file-input" name="imagem" >                            
+                                <input type="file" class="custom-file-input" name="imagem" required>                            
                             </div>    
                         </div>
                     </div>    

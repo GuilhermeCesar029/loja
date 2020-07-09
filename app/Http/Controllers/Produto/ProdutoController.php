@@ -11,7 +11,8 @@ class ProdutoController extends Controller
 {
     
     public function index(){
-        return view('admin.cadastrar');
+        $produtos = Produtct::Paginate(10);
+        return view('admin.cadastrar', compact('produtos'));
     }
 
     public function cadastrar(Request $request){

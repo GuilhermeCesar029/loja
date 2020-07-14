@@ -14,7 +14,6 @@
         <div class="list-group">
           <a href="#" class="list-group-item">Natura</a>
           <a href="#" class="list-group-item">Avon</a>
-          <a href="#" class="list-group-item">Roupas</a>
           <a href="{{route('login.admin')}}" class="list-group-item">Intranet</a> 
         </div>          
       </div>

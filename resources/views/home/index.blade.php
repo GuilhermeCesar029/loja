@@ -48,10 +48,12 @@
           </div>
           
             <div class="row">
-              @foreach($produtos as $produto)
+              @foreach($produtos as $produto)                
                 <div class="col-lg-4 col-md-6 mb-4">
                   <div class="card h-100">
-                    <img class="card-img-top" src="{{asset($produto->imagem)}}">
+                    <a href=" {{route('produto', $produto->id)}} ">
+                      <img class="card-img-top" src="{{asset($produto->imagem)}}">
+                    </a>
                     <div class="card-body">
                       <h4 class="card-title">
                         <a href="{{route('produto', $produto->id)}}">{{$produto->titulo}}</a>
@@ -66,7 +68,7 @@
                       <a class="badge badge-info" href=" {{route('produto', $produto->id)}} ">Veja mais informações</a>
                     </div>
                   </div>
-                </div>
+                </div>                
               @endforeach
           </div>
           <!-- /.row -->
